@@ -1,0 +1,30 @@
+<div class="p-6 bg-white rounded-lg shadow-lg">
+  <div class="card-body">
+    <div class="mb-4 flex items-center space-x-2">
+      <input [(ngModel)]="motcle"  class="bg-slate-100 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-lime-500" type="text" placeholder="Tapez-vous ...">
+      <button (click)="recherche()"class="px-6 py-2 bg-lime-700 text-white rounded-md hover:bg-lime-500 transition duration-200">RECHERCHER</button>
+
+    </div>
+
+    <table class="min-w-full bg-white border border-gray-200 rounded-lg">
+      <thead>
+        <tr class="bg-gray-100">
+          <th class="text-left px-4 py-2 font-semibold">ID</th>
+          <th class="text-left px-4 py-2 font-semibold">Name</th>
+          <th class="text-left px-4 py-2 font-semibold">Price</th>
+          <th class="px-4 py-2"></th>
+        </tr>
+      </thead>
+      <tbody *ngIf="products">
+        <tr *ngFor="let p of products" class="border-t">
+          <td class="px-4 py-2">{{p.id}}</td>
+          <td class="px-4 py-2">{{p.name}}</td>
+          <td class="px-4 py-2">{{p.price}}</td>
+          <td class="px-4 py-2">
+            <button (click)="deleteProduct(p)" class="px-4 py-2 rounded-full bg-lime-700 text-white hover:bg-amber-700 ml-2 transition duration-200">Supprimer</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
